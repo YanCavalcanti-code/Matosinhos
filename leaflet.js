@@ -35,7 +35,7 @@ var map = L.map(document.getElementById('map'), {center: [41.2092156,-8.6669465]
     //Marcador
     //CMM
     var myDataPoint = L.marker([41.18352209127619, -8.682948346516875]).addTo(map);
-    myDataPoint.bindPopup("<h3>Câmara Municipal de Matosinhos</h3><img src='./Img/CMM.png'width='230'height='50' <br> <p>Av. Dom Afonso Henriques, 4454-510 Matosinhos - Porto, Portugal</p> 41.18350594, -8.682862515");
+    myDataPoint.bindPopup("<h3>Câmara Municipal de Matosinhos</h3><img src='./img/CMM.png'width='230'height='50' <br> <p>Av. Dom Afonso Henriques, 4454-510 Matosinhos - Porto, Portugal</p> 41.18350594, -8.682862515");
 
     //Geojson
 
@@ -71,7 +71,7 @@ var map = L.map(document.getElementById('map'), {center: [41.2092156,-8.6669465]
             let post = feature.properties.CodigoPost;
             let type = feature.geometry.type
             let coord = feature.geometry.coordinates
-            layer.bindPopup('<h2><img src="./Img/AL.png"width="40"height="40"> &nbsp;ALOJAMENTO LOCAL </h2><p><strong>Denominação</strong>: ' + dom + '</p> <p><strong>Modalidade</strong>: ' + mod + '</p> <p><strong>Nº Utentes</strong>: ' + utent + '</p><p><strong>Endereço</strong>:  ' + end + ' </p> <p><strong>CTT</strong>: ' + post + '</p> <p><strong>Lat/Long</strong>: &nbsp;'+ coord +'</p> <p><strong>Fonte</strong>: Sistema de Informação Geográfica do Turismo - SIGTUR 2020</p>');
+            layer.bindPopup('<h2><img src="./img/AL.png"width="40"height="40"> &nbsp;ALOJAMENTO LOCAL </h2><p><strong>Denominação</strong>: ' + dom + '</p> <p><strong>Modalidade</strong>: ' + mod + '</p> <p><strong>Nº Utentes</strong>: ' + utent + '</p><p><strong>Endereço</strong>:  ' + end + ' </p> <p><strong>CTT</strong>: ' + post + '</p> <p><strong>Lat/Long</strong>: &nbsp;'+ coord +'</p> <p><strong>Fonte</strong>: Sistema de Informação Geográfica do Turismo - SIGTUR 2020</p>');
         },
         pointToLayer: function (feature, latlng){
             return L.circleMarker(latlng, stylePoint);
