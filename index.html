@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto CMM - Serviços Turísticos</title>
+    <!--folha de estilo (CSS)-->
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <!--Leaflet-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css">  
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
+    <!--PLUGIN CONTROL JS-->
+    <script type="text/javascript" src="js/L.Control.ZoomBar.js"></script>
+    <!--PLUGIN CONTROL CSS-->
+    <link rel="stylesheet" type="text/css" href="stylesheets/L.Control.ZoomBar.css"/>
+
+
+    <!--Heat Map - Chamando Biblioteca ESRI-->
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.5.1/dist/esri-leaflet.js"
+    integrity="sha512-q7X96AASUF0hol5Ih7AeZpRF6smJS55lcvy+GLWzJfZN+31/BQ8cgNx2FGF+IQSA4z2jHwB20vml+drmooqzzQ=="
+    crossorigin=""></script>
+    <!-- Include Leaflet.heat from CDN -->
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <!-- Load Heatmap Feature Layer from CDN -->
+    <script src="https://unpkg.com/esri-leaflet-heatmap@2.0.0"></script>
+    <!-- Heatmap Feature Layer -->
+    <script src="https://unpkg.com/esri-leaflet-heatmap@2.0.0/dist/esri-leaflet-heatmap.js"
+    integrity="sha512-fSJJRfO4PK90PN9jKKBzBZmzlNRsR12QA/CqTTWgfUTfLMF1Nrx5ouOqlpzC8LQIP+Qz0/G4BlHSgxHrCLHuMA=="
+    crossorigin=""></script>
+
+
+    <!--Geojson-->
+    <!--Município de Matosinhos-->
+    <script src="Geojson/CMM.geojson"></script>
+    <!--Alojamento Local-->
+    <script src="Geojson/Alojamento_Matosinhos.geojson"></script>
+    <!--Empreendimentos Turísticos (ET)-->
+    <script src="Geojson/ET_Matosinhos.geojson"></script>
+    <!--Projetos ET com parecer favorável do TdP-->
+    <script src="Geojson/Proj_ET_TdP.geojson"></script>
+    <!--PIP de ET com parecer favorável do TdP-->
+    <script src="Geojson/PIP_ET_TdP.geojson"></script>
+    <!--Agências de Viagem e Turismo-->
+    <script src="Geojson/Agencia_ViagTuris.geojson"></script>
+
+</head>
+<body>
+    
+    <div id="top">
+        <a href="https://www.cm-matosinhos.pt/" target="_blank">
+            <img id="logo"src="./img/Matosinhos.png">
+        </a>
+    </div>
+    <h1 id="title">Cartografia Municipal dos Serviços Turísticos em Matosinhos</h1>
+    <div style="float: left;">
+        <!--Heat Map-->
+        <!-- Include Leaflet.heat from CDN -->
+        <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+        <!-- Load Heatmap Feature Layer from CDN -->
+        <script src="https://unpkg.com/esri-leaflet-heatmap@2.0.0"></script>
+
+        <!--include map-->
+        <div id='map'>i</div>
+        <!--chamando javascript - Leaflet-->
+        <script src="leaflet.js"></script>
+    </div>
+    <br>
+    <div class="button">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="dashboard" type="button"><a href="https://arcg.is/14zuGW"><i class="far fa-chart-bar"></i> Dashboard</a></button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <table class="table">
+        <tr>
+            <th colspan="3">Download de Arquivos</th>
+        </tr>
+        <tr>
+            <td>Alojamentos<br>Locais</td>
+            <td><a class="shp"href="./shapefile/AL_Matosinhos.zip" download><i class="fas fa-file-download"></i> AL.shp</td>
+            <td><a class="geojson"href="./Geojson/Alojamento_Matosinhos.geojson" download><i class="fas fa-file-download"></i> AL.geojson</td>
+        </tr>
+        <tr>
+            <td>Empreendimentos<br>Turísticos</td>
+            <td><a class="shp"href="./shapefile/ET_Matosinhos.zip" download><i class="fas fa-file-download"></i> ET.shp</td>
+            <td><a class="geojson"href="./Geojson/ET_Matosinhos.geojson" download><i class="fas fa-file-download"></i> ET.geojson</td>
+        </tr>
+        <tr>
+            <td>Projetos de ET c/<br>parecer favorável do TdP</td>
+            <td><a class="shp"href="./shapefile/ProjET_TdP.zip" download><i class="fas fa-file-download"></i> Proj_ET.shp</td>
+            <td><a class="geojson"href="./Geojson/Proj_ET_TdP.geojson" download><i class="fas fa-file-download"></i> Proj_ET.geojson</td>
+        </tr>
+        <tr>
+            <td>PIP de ET c/<br>parecer favorável do TdP</td>
+            <td><a class="shp"href="./shapefile/PIP_ET_TdP.zip" download><i class="fas fa-file-download"></i> PIP_ET.shp</td>
+            <td><a class="geojson"href="./Geojson/PIP_ET_TdP.geojson" download><i class="fas fa-file-download"></i> PIP_ET.geojson</td>
+        </tr>
+        <tr>
+            <td>Agências de<br>Turísmo e Viagem</td>
+            <td><a class="shp"href="./shapefile/Agencias_Turismo_Viagens.zip" download><i class="fas fa-file-download"></i> ATV.shp</td>
+            <td><a class="geojson"href="./Geojson/Agencia_ViagTuris.geojson" download><i class="fas fa-file-download"></i> ATV.geojson</td>
+        </tr>
+    </table>
+
+    <p id="infomap"><strong>Fonte:</strong> SIGTur - Turismo de Portugal (2020) e<br>CAOP - Carta Administrativa Oficial de Portugal (2019)<br><br><strong>Projeção:</strong> WGS 84</p>
+   <div>
+    <footer>
+        <p id="autoria">Câmara Municipal de Matosinhos ©2021</p>
+    </footer>
+    </div>
+    
+</body>
+</html>
