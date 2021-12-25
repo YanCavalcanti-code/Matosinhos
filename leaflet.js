@@ -32,6 +32,12 @@ var map = L.map(document.getElementById('map'), {center: [41.2092156,-8.6669465]
         ).addTo(map);
     var openstreetmap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution:'<a href="https://www.openstreetmap.org/#map=17/-21.00148/-44.99806">©OpenStreetMap</a> Contributors'});
 
+    var googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3'],
+        attribution:'© <a href="https://www.google.com/maps" target="_blank">Google Maps - Satellite</a>'
+    });
+
     //Marcador
     //CMM
     var myDataPoint = L.marker([41.18352209127619, -8.682948346516875]).addTo(map);
@@ -179,6 +185,7 @@ var map = L.map(document.getElementById('map'), {center: [41.2092156,-8.6669465]
     var baselayers = {
         'Imaginary': Imaginary,
         'OpenStreetMap':openstreetmap,
+        'Google Maps':googleHybrid,
     };
     var layers = {
         '<strong>AL</strong> - Alojamento Local': Alojamento,
