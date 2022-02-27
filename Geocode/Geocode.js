@@ -5,7 +5,7 @@ L.Control.Search = L.Control.extend({
 	options: {
 		position: 'topleft',
 		title: 'Nominatim Search',
-		email: ''
+		email: 'yancavalcanti@gmail.com'
 	},
 
 	onAdd: function( map ) {
