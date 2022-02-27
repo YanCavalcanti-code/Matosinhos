@@ -203,3 +203,6 @@ var map = L.map(document.getElementById('map'), {center: [41.2092156,-8.6669465]
 
     // ADICIONANDO ZOOM BAR
     var zoom_bar = new L.Control.ZoomBar({position: 'topleft'}).addTo(map);
+
+    // Search Control
+    map.addControl(L.control.search());
