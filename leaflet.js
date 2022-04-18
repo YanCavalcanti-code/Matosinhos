@@ -38,6 +38,16 @@ var map = L.map(document.getElementById('map'), {center: [41.2092156,-8.6669465]
         attribution:'© <a href="https://www.google.com/maps" target="_blank">Google Maps - Satellite</a>'
     });
 
+    // Location
+
+    L.control.locate({
+      flyTo: true,
+      showPopup: false,
+      strings: {
+        title: "Aceder Localização Atual"
+      }
+    }).addTo(map);
+
     //Marcador
     //CMM
     var myDataPoint = L.marker([41.18352209127619, -8.682948346516875]).addTo(map);
